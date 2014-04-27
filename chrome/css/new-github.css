@@ -1,4 +1,14 @@
-/*.white {
+#blog-main .pagehead h1 a.title {
+  color: #f3f3f3 !important;
+}
+
+.repository-lang-stats-graph {
+  border-bottom-left-radius: 0px !important;
+  border-bottom-right-radius: 0px !important;
+}
+
+/*
+.white {
   color: white !important;
 }
 
@@ -9,4 +19,5 @@
 
 .starred, .unstarred, .social-count, .fork-button {
   border-color: rgba(51, 51, 51, 0.6) !important;
-}*/
+}
+*/

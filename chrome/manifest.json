@@ -4,12 +4,13 @@
   "description": "Fresh look at GitHub repos",
   "content_scripts": [{
     "css": ["css/new-github.css"],
-    "js": ["js/jquery.min.js", "js/geopattern.min.js", "js/new-github.js"],
-    "matches": ["https://github.com/*/*"]
+    "js": ["js/jquery.min.js", "js/d3.v3.min.js", "js/trianglify.min.js", "js/new-github.js"],
+    "matches": ["https://github.com/*/*", "https://github.com/*/*/tree/*"]
   }],
   "permissions": [
     "storage",
-    "https://github.com/*/*"
+    "https://github.com/*/*",
+    "https://github.com/*/*/tree/*"
   ],
   "manifest_version": 2
 }
