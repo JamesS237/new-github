@@ -4,7 +4,7 @@
 I created this chrome extension to see how [Ian Storm Talyor's](https://github.com/ianstormtaylor) repo design would look on GitHub.
 You can check out the article [here](http://ianstormtaylor.com/refactoring-githubs-design/)
 
-![](http://cl.ly/image/1M1v351X2P42/content)
+![](http://files.parse.com/7b0bc342-afdb-413d-a8fc-b6074dd6aab7/6628aa5c-99a3-49e1-853a-5e8a930266b6-SC1398567734)
 
 ## Installation
 
