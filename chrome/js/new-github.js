@@ -46,6 +46,7 @@ if (d) {
     '.sunken-menu-separator',
     '.in-mid-page'
   ].forEach(remove);
+  setTimeout(scrolldown, 200);
 }
 function generateGeoPatternBackground(githubRepo) {
   //var pattern = GeoPattern.generate(githubRepo, {baseColor: '#333'});
@@ -105,4 +106,7 @@ function remove(element, index, array) {
 }
 function whiteOut(element, index, array) {
   $(element).addClass('white');
+}
+function scrolldown() {
+  $('html, body').animate({scrollTop: '+=41px'}, 250);
 }
