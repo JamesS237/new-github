@@ -28,6 +28,7 @@ if (d) {
   el.attr('aria-label', langs);
   var cont = $('.site');
   cont.prepend(el);
+
   [
     '.octicon-repo:before',
     '.author > a > span',
@@ -54,7 +55,7 @@ function generateGeoPatternBackground(githubRepo) {
       cellsize: 128,
       noiseIntensity: 0.2
     });
-  var pattern = t.generate(document.body.clientWidth, 512);
+  var pattern = t.generate(document.body.clientWidth, 128);
   $('.pagehead').css({
     'border-bottom': 'none',
     'padding': '2.5% 0',
@@ -82,6 +83,17 @@ function moveCreateNewFile() {
   });
 }
 function moveBranchListing() {
+
+  var githubRepo = document.URL.split('/')[4];
+  var githubUser = document.URL.split('/')[3];
+
+  var commitcount = $('.numbers-summary').find(">:first-child").map(function() {
+    window.xyz = $(this)
+    return $(this).find(">:first-child").find(">:first-child").text().trim();
+  }).get()[0];
+
+  var commits = $('<li>').append($('<a href="/' + githubRepo + '/' + githubUser + '/commits" aria-label="View the latest commits" class="tooltipped tooltipped-n" data-pjax="" style="color: white; font-size: 15px; padding-right: 20px;"><span class="octicon octicon-history"></span> ' + commitcount + '</a>'));
+
   $buttonContainer = $('.select-menu').last();
   $buttonContainer.children().find('i').remove();
   // Clear out uneeded button styles
@@ -95,10 +107,11 @@ function moveBranchListing() {
   });
   $listEl = $('<li>').append($buttonContainer);
   $('.pagehead-actions').prepend($listEl);
+  $('.pagehead-actions li:nth-child(3n)').after(commits);
 }
 // This is due to the constraint right now that I only style the main repo page
 function injectCSS() {
-  var styleCSS = '<style>                    .white {                         color: white !important;                     }                    .octicon-repo:before {                      color: white !important;                      opacity: 0.6 !important;                    }                    .starred, .unstarred, .social-count, .fork-button {                      border-color: rgba(51, 51, 51, 0.6) !important;                    }                    </style>';
+  var styleCSS = '<style>                    .white {                         color: white !important;                     }                    .octicon-repo:before {                      color: white !important;                      opacity: 0.6 !important;                    }                    .starred, .subscription, .unstarred, .social-count, .fork-button {                      border-color: rgba(51, 51, 51, 0.6) !important;                    }                    </style>';
   $('head').append(styleCSS);
 }
 function remove(element, index, array) {
@@ -108,5 +121,5 @@ function whiteOut(element, index, array) {
   $(element).addClass('white');
 }
 function scrolldown() {
-  $('html, body').animate({scrollTop: '+=41px'}, 250);
+  $('html, body').animate({scrollTop: '+=41px'}, 200);
 }
